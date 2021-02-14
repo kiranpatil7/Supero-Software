@@ -50,7 +50,7 @@ public class Main  extends Item {
         
             else if(args[i].toLowerCase().equals("name"))
             {
-                System.out.println("From Name");
+               // System.out.println("From Name");
 
                 boolean checkingtype =false;
                 
@@ -66,7 +66,7 @@ public class Main  extends Item {
             }
             else if(args[i].toLowerCase().equals("type"))
             {
-                System.out.println("From Type");
+               // System.out.println("From Type");
 
                 boolean checkingtype =false;
                 
@@ -84,7 +84,7 @@ public class Main  extends Item {
             }
             else if(args[i].toLowerCase().equals("price"))
             {
-                System.out.println("From Price");
+                //System.out.println("From Price");
 
                 boolean checkingtype =false;
                 
@@ -105,7 +105,7 @@ public class Main  extends Item {
                 boolean checkingtype =false;
                 
                     checkingtype =isNumric(args[i+1]);
-                    System.out.println("From Quantity"+checkingtype);
+                    //System.out.println("From Quantity"+checkingtype);
 
                     if(checkingtype)
                     {
@@ -136,6 +136,23 @@ public class Main  extends Item {
              total_price =per_tax*quantity;
 
         }else if (type.equals("imported")){
+        
+           double temp = 0.01*price;
+           per_tax = temp;
+           total_price =temp*quantity;
+           if(total_price<=100)
+           {
+           	per_tax =per_tax+5;
+           }
+           else if(total_price<=200 && total_price>100)
+           {
+              per_tax =per_tax +10;
+           }
+           else
+           {
+           	per_tax =total_price*0.05;
+           }
+           
 
 
         }else{
